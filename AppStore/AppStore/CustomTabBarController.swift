@@ -17,19 +17,19 @@ class CustomTabBarController: UITabBarController {
         tabBar.backgroundColor = .darkGray
         tabBar.isTranslucent = true
 
-        let firstViewController = createNavigationView(viewController: ViewController(),
+        let firstViewController = createNavigationView(viewController: TodayViewController(),
                                                        tabBarTitle: "투데이",
                                                        tabBarImage: "doc.text.image")
-        let secondViewController = createNavigationView(viewController: ViewController(),
+        let secondViewController = createNavigationView(viewController: TodayViewController(),
                                                         tabBarTitle: "게임",
                                                         tabBarImage: "paperplane.fill")
-        let thirdViewController = createNavigationView(viewController: ViewController(),
+        let thirdViewController = createNavigationView(viewController: TodayViewController(),
                                                        tabBarTitle: "앱",
                                                        tabBarImage: "square.stack.3d.up.fill")
-        let fourthViewController = createNavigationView(viewController: ViewController(),
+        let fourthViewController = createNavigationView(viewController: TodayViewController(),
                                                         tabBarTitle: "Arcade",
                                                         tabBarImage: "gamecontroller.fill")
-        let fifthViewController = createNavigationView(viewController: ViewController(),
+        let fifthViewController = createNavigationView(viewController: TodayViewController(),
                                                        tabBarTitle: "검색",
                                                        tabBarImage: "magnifyingglass")
 
