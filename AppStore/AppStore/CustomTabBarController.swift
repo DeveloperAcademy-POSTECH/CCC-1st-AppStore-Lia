@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTabBarController: UITabBarController {
+final class CustomTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class CustomTabBarController: UITabBarController {
                                 fifthViewController]
     }
 
-    func createNavigationView(viewController: UIViewController,
+    private func createNavigationView(viewController: UIViewController,
                               tabBarTitle: String,
                               tabBarImage: String) -> UINavigationController {
 

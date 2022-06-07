@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IntroductionViewController: UIViewController {
+final class IntroductionViewController: UIViewController {
 
     private var subtitleLabel = UILabel()
     private var titleLabel = UILabel()
@@ -88,7 +88,7 @@ class IntroductionViewController: UIViewController {
         }
     }
 
-    func setDescription(description: String) {
+    private func setDescription(description: String) {
         descriptionLabel.text = description
         descriptionLabel.applyFontStyle(.description, isDark: true)
 

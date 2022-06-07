@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TodayViewController: UIViewController {
+final class TodayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,4 +83,5 @@ class TodayViewController: UIViewController {
         introView.view.layer.masksToBounds = true
         return introView
     }
+    
 }
