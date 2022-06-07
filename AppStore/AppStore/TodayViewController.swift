@@ -12,13 +12,14 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = .systemBackground
         setNavigationBar()
+        setChildViewController()
     }
 
     private func setNavigationBar() {
         self.navigationItem.title = "투데이"
-        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.barStyle = .default
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
         lazy var dateLabel: UILabel = {
@@ -53,4 +54,33 @@ class TodayViewController: UIViewController {
         ])
     }
 
+    private func setChildViewController() {
+        let introductionViewController = createAIntroView()
+
+        addChild(introductionViewController)
+        view.addSubview(introductionViewController.view)
+        introductionViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        introductionViewController.didMove(toParent: self)
+
+        NSLayoutConstraint.activate([
+            introductionViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18),
+            introductionViewController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            introductionViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18),
+            introductionViewController.view.heightAnchor.constraint(equalToConstant: 400)
+        ])
+    }
+
+    private func createAIntroView() -> IntroductionViewController {
+        let introView = IntroductionViewController()
+        
+        introView.setTopic(titlePosition: .bottom,
+                           title: "Microsoft Office",
+                           subtitle: "추천 앱",
+                           description: "모바일에 최적화된 오피스 앱을 만나보세요.",
+                           isDark: true)
+        
+        introView.view.layer.cornerRadius = 15
+        introView.view.layer.masksToBounds = true
+        return introView
+    }
 }
