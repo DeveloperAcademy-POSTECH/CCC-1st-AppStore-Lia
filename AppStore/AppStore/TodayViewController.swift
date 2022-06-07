@@ -72,13 +72,13 @@ class TodayViewController: UIViewController {
 
     private func createAIntroView() -> IntroductionViewController {
         let introView = IntroductionViewController()
-        
+
         introView.setTopic(titlePosition: .bottom,
                            title: "Microsoft Office",
                            subtitle: "추천 앱",
                            description: "모바일에 최적화된 오피스 앱을 만나보세요.",
                            isDark: true)
-        
+
         introView.view.layer.cornerRadius = 15
         introView.view.layer.masksToBounds = true
         return introView
