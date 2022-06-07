@@ -78,10 +78,11 @@ final class TodayViewController: UIViewController {
                            subtitle: "추천 앱",
                            description: "모바일에 최적화된 오피스 앱을 만나보세요.",
                            isDark: true)
+        introView.setImage(with: "micro.jpeg", position: .top)
 
         introView.view.layer.cornerRadius = 15
         introView.view.layer.masksToBounds = true
         return introView
     }
-    
+
 }
