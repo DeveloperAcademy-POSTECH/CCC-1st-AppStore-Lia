@@ -9,46 +9,50 @@ import UIKit
 
 final class TodayViewController: UIViewController {
 
+    lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "\n6월 4일 토요일" // 줄바꿈 - navigation.title과 더 가깝게 보내기 위함
+        label.numberOfLines = 2
+        label.textColor = .lightGray
+        label.font = UIFont.systemFont(ofSize: 14)
+        return label
+    }()
+
+    lazy var profileButton: UIButton = {
+        let button = UIButton()
+        button.frame.size = CGSize(width: 35, height: 35)
+        button.setImage(UIImage(named: "LiaProfile"), for: .normal) // Object Literal Violation Warning...
+        button.layer.cornerRadius = button.frame.size.width / 2
+        button.clipsToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBackground
         setNavigationBar()
         setChildViewController()
     }
 
     private func setNavigationBar() {
-        self.navigationItem.title = "투데이"
-        self.navigationController?.navigationBar.barStyle = .default
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "투데이"
+        navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.prefersLargeTitles = true
 
-        lazy var dateLabel: UILabel = {
-            let label = UILabel()
-            label.text = "\n6월 4일 토요일" // 줄바꿈 - navigation.title과 더 가깝게 보내기 위함
-            label.numberOfLines = 2
-            label.textColor = .lightGray
-            label.font = UIFont.systemFont(ofSize: 14)
-            return label
-        }()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dateLabel)
+        navigationItem.titleView = profileButton
+        setNavigationConstraint()
+    }
 
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dateLabel)
-
-        lazy var profileButton: UIButton = {
-            let button = UIButton()
-            button.frame.size = CGSize(width: 35, height: 35)
-            button.setImage(UIImage(named: "LiaProfile"), for: .normal) // Object Literal Violation Warning...
-            button.layer.cornerRadius = button.frame.size.width / 2
-            button.clipsToBounds = true
-            button.translatesAutoresizingMaskIntoConstraints = false
-            return button
-        }()
-
-        self.navigationItem.titleView = profileButton // profileImageView
+    private func setNavigationConstraint() {
+        let layoutCriteriaView: UIView = navigationController?.navigationBar ?? view
 
         NSLayoutConstraint.activate([
-            profileButton.trailingAnchor.constraint(equalTo: navigationController!.navigationBar.trailingAnchor,
+            profileButton.trailingAnchor.constraint(equalTo: layoutCriteriaView.trailingAnchor,
                                                     constant: -13),
-            profileButton.topAnchor.constraint(equalTo: navigationController!.navigationBar.topAnchor, constant: 50),
+            profileButton.topAnchor.constraint(equalTo: layoutCriteriaView.topAnchor, constant: 50),
             profileButton.widthAnchor.constraint(equalToConstant: 35),
             profileButton.heightAnchor.constraint(equalToConstant: 35)
         ])
