@@ -81,8 +81,8 @@ class CustomTabBarController: UITabBarController {
     private func setTabBarViewControllers() {
         let viewControllers = TabBarType.allCases.map {
             return createNavigationVC(viewController: $0.viewController(),
-                                        tabBarTitle: $0.title(),
-                                        tabBarImage: $0.imageName())
+                                      tabBarTitle: $0.title(),
+                                      tabBarImage: $0.imageName())
         }
         self.viewControllers = viewControllers
     }
