@@ -12,11 +12,18 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setTabBar()
+        setTabBarViewControllers()
+    }
+
+    private func setTabBar() {
         tabBar.tintColor = .systemBlue
         tabBar.unselectedItemTintColor = .systemGray
         tabBar.backgroundColor = .darkGray
         tabBar.isTranslucent = true
+    }
 
+    private func setTabBarViewControllers() {
         let firstViewController = createNavigationView(viewController: TodayViewController(),
                                                        tabBarTitle: "투데이",
                                                        tabBarImage: "doc.text.image")
@@ -40,9 +47,9 @@ class CustomTabBarController: UITabBarController {
                                 fifthViewController]
     }
 
-    func createNavigationView(viewController: UIViewController,
-                              tabBarTitle: String,
-                              tabBarImage: String) -> UINavigationController {
+    private func createNavigationView(viewController: UIViewController,
+                                      tabBarTitle: String,
+                                      tabBarImage: String) -> UINavigationController {
 
         let navigationView = UINavigationController(rootViewController: viewController)
 
