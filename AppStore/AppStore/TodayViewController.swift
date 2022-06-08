@@ -31,17 +31,17 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .black
+        view.backgroundColor = .black
         setNavigationBar()
     }
 
     private func setNavigationBar() {
-        self.navigationItem.title = "투데이"
-        self.navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "투데이"
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.prefersLargeTitles = true
 
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dateLabel)
-        self.navigationItem.titleView = profileButton
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dateLabel)
+        navigationItem.titleView = profileButton
         setNavigationConstraint()
     }
 
