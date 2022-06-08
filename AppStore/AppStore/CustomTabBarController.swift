@@ -12,11 +12,11 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setTabBar()
+        setTabBarUI()
         setTabBarViewControllers()
     }
 
-    private func setTabBar() {
+    private func setTabBarUI() {
         tabBar.tintColor = .systemBlue
         tabBar.unselectedItemTintColor = .systemGray
         tabBar.backgroundColor = .darkGray
