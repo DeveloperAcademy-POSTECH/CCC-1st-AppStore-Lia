@@ -9,6 +9,61 @@ import UIKit
 
 class CustomTabBarController: UITabBarController {
 
+    enum TabBarType: CaseIterable {
+
+        case today
+        case game
+        case app
+        case arcade
+        case search
+
+        func imageName() -> String {
+            switch self {
+            case .today:
+                return "doc.text.image"
+            case .game:
+                return "paperplane.fill"
+            case .app:
+                return "square.stack.3d.up.fill"
+            case .arcade:
+                return "gamecontroller.fill"
+            case .search:
+                return "magnifyingglass"
+            }
+        }
+
+        func title() -> String {
+            switch self {
+            case .today:
+                return "투데이"
+            case .game:
+                return "게임"
+            case .app:
+                return "앱"
+            case .arcade:
+                return "Arcade"
+            case .search:
+                return "검색"
+            }
+        }
+
+        func viewController() -> UIViewController {
+            switch self {
+            case .today:
+                return TodayViewController()
+            case .game:
+                return UIViewController()
+            case .app:
+                return UIViewController()
+            case .arcade:
+                return UIViewController()
+            case .search:
+                return UIViewController()
+            }
+        }
+
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,27 +79,12 @@ class CustomTabBarController: UITabBarController {
     }
 
     private func setTabBarViewControllers() {
-        let firstViewController = createNavigationView(viewController: TodayViewController(),
-                                                       tabBarTitle: "투데이",
-                                                       tabBarImage: "doc.text.image")
-        let secondViewController = createNavigationView(viewController: TodayViewController(),
-                                                        tabBarTitle: "게임",
-                                                        tabBarImage: "paperplane.fill")
-        let thirdViewController = createNavigationView(viewController: TodayViewController(),
-                                                       tabBarTitle: "앱",
-                                                       tabBarImage: "square.stack.3d.up.fill")
-        let fourthViewController = createNavigationView(viewController: TodayViewController(),
-                                                        tabBarTitle: "Arcade",
-                                                        tabBarImage: "gamecontroller.fill")
-        let fifthViewController = createNavigationView(viewController: TodayViewController(),
-                                                       tabBarTitle: "검색",
-                                                       tabBarImage: "magnifyingglass")
-
-        self.viewControllers = [firstViewController,
-                                secondViewController,
-                                thirdViewController,
-                                fourthViewController,
-                                fifthViewController]
+        let viewControllers = TabBarType.allCases.map {
+            return createNavigationView(viewController: $0.viewController(),
+                                        tabBarTitle: $0.title(),
+                                        tabBarImage: $0.imageName())
+        }
+        self.viewControllers = viewControllers
     }
 
     private func createNavigationView(viewController: UIViewController,
