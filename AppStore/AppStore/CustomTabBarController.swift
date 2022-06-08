@@ -22,11 +22,11 @@ class CustomTabBarController: UITabBarController {
             case .today:
                 return "doc.text.image"
             case .game:
-                return "paperplane.fill"
+                return "rocket"
             case .app:
                 return "square.stack.3d.up.fill"
             case .arcade:
-                return "gamecontroller.fill"
+                return "arcade"
             case .search:
                 return "magnifyingglass"
             }
@@ -94,7 +94,7 @@ class CustomTabBarController: UITabBarController {
         let navigationVC = UINavigationController(rootViewController: viewController)
 
         navigationVC.tabBarItem.title = tabBarTitle
-        navigationVC.tabBarItem.image = UIImage(systemName: tabBarImage)
+        navigationVC.tabBarItem.image = UIImage(systemName: tabBarImage) ?? UIImage(named: tabBarImage)
 
         return navigationVC
     }
