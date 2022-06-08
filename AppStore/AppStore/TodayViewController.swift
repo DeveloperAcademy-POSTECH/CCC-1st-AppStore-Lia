@@ -46,10 +46,12 @@ class TodayViewController: UIViewController {
     }
 
     private func setNavigationConstraint() {
+        let layoutCriteriaView: UIView = navigationController?.navigationBar ?? view
+
         NSLayoutConstraint.activate([
-            profileButton.trailingAnchor.constraint(equalTo: navigationController!.navigationBar.trailingAnchor,
+            profileButton.trailingAnchor.constraint(equalTo: layoutCriteriaView.trailingAnchor,
                                                     constant: -13),
-            profileButton.topAnchor.constraint(equalTo: navigationController!.navigationBar.topAnchor, constant: 50),
+            profileButton.topAnchor.constraint(equalTo: layoutCriteriaView.topAnchor, constant: 50),
             profileButton.widthAnchor.constraint(equalToConstant: 35),
             profileButton.heightAnchor.constraint(equalToConstant: 35)
         ])
