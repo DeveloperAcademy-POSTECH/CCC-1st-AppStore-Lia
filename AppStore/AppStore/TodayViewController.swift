@@ -22,7 +22,8 @@ class TodayViewController: UIViewController {
         let button = UIButton()
         button.frame.size = CGSize(width: 35, height: 35)
         button.setImage(UIImage(named: "LiaProfile"), for: .normal) // Object Literal Violation Warning...
-        button.layer.cornerRadius = button.frame.size.width / 2
+        button.imageView?.contentMode = .scaleAspectFit
+        button.layer.cornerRadius = (button.imageView?.frame.size.width ?? 0) / 2
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -41,17 +42,15 @@ class TodayViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dateLabel)
-        navigationItem.titleView = profileButton
         setNavigationConstraint()
     }
 
     private func setNavigationConstraint() {
-        let layoutCriteriaView: UIView = navigationController?.navigationBar ?? view
+        view.addSubview(profileButton)
 
         NSLayoutConstraint.activate([
-            profileButton.trailingAnchor.constraint(equalTo: layoutCriteriaView.trailingAnchor,
-                                                    constant: -13),
-            profileButton.topAnchor.constraint(equalTo: layoutCriteriaView.topAnchor, constant: 50),
+            profileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -13),
+            profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 95),
             profileButton.widthAnchor.constraint(equalToConstant: 35),
             profileButton.heightAnchor.constraint(equalToConstant: 35)
         ])
