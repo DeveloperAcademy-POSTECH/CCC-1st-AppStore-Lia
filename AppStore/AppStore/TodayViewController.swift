@@ -21,7 +21,7 @@ class TodayViewController: UIViewController {
     lazy var profileButton: UIButton = {
         let button = UIButton()
         button.frame.size = CGSize(width: 35, height: 35)
-        button.setImage(UIImage(named: "LiaProfile"), for: .normal) // Object Literal Violation Warning...
+        button.setImage(UIImage(named: ImageLiteral.profile), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.layer.cornerRadius = (button.imageView?.frame.size.width ?? 0) / 2
         button.clipsToBounds = true

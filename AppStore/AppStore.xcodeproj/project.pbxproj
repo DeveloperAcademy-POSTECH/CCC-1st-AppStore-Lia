@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE41DBA5286413310019FD25 /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE41DBA4286413310019FD25 /* ImageLiteral.swift */; };
 		AE878C59284A4F090051BBE8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = AE878C58284A4F090051BBE8 /* .swiftlint.yml */; };
 		AE878C5B284A63F30051BBE8 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE878C5A284A63F30051BBE8 /* CustomTabBarController.swift */; };
 		AEA50EA428471555004859C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA50EA328471555004859C8 /* AppDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE41DBA4286413310019FD25 /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
 		AE878C58284A4F090051BBE8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AE878C5A284A63F30051BBE8 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		AEA50EA028471555004859C8 /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +64,7 @@
 				AEA50EA328471555004859C8 /* AppDelegate.swift */,
 				AEA50EA528471555004859C8 /* SceneDelegate.swift */,
 				AEA50EA728471555004859C8 /* TodayViewController.swift */,
+				AE41DBA4286413310019FD25 /* ImageLiteral.swift */,
 				AE878C5A284A63F30051BBE8 /* CustomTabBarController.swift */,
 				AEA50EAC28471556004859C8 /* Assets.xcassets */,
 				AEA50EAE28471556004859C8 /* LaunchScreen.storyboard */,
@@ -166,6 +169,7 @@
 				AEA50EA428471555004859C8 /* AppDelegate.swift in Sources */,
 				AE878C5B284A63F30051BBE8 /* CustomTabBarController.swift in Sources */,
 				AEA50EA628471555004859C8 /* SceneDelegate.swift in Sources */,
+				AE41DBA5286413310019FD25 /* ImageLiteral.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
