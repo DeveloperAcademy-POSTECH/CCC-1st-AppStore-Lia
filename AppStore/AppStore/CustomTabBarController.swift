@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTabBarController: UITabBarController {
+final class CustomTabBarController: UITabBarController {
 
     enum TabBarType: CaseIterable {
 

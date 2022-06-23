@@ -7,11 +7,11 @@
 
 import UIKit
 
-class TodayViewController: UIViewController {
+final class TodayViewController: UIViewController {
 
     private let profileButtonSize: CGFloat = 35
 
-    lazy var dateLabel: UILabel = {
+    private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.text = "\n6월 4일 토요일" // 줄바꿈 - navigation.title과 더 가깝게 보내기 위함
         label.numberOfLines = 2
@@ -20,7 +20,7 @@ class TodayViewController: UIViewController {
         return label
     }()
 
-    lazy var profileButton: UIButton = {
+    private lazy var profileButton: UIButton = {
         let button = UIButton()
         button.frame.size = CGSize(width: profileButtonSize, height: profileButtonSize)
         button.setImage(UIImage(named: ImageLiteral.profile), for: .normal)
