@@ -9,7 +9,9 @@ import UIKit
 
 final class TodayViewController: UIViewController {
 
-    lazy var dateLabel: UILabel = {
+    private let profileButtonSize: CGFloat = 35
+
+    private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.text = "\n6월 4일 토요일" // 줄바꿈 - navigation.title과 더 가깝게 보내기 위함
         label.numberOfLines = 2
@@ -18,11 +20,12 @@ final class TodayViewController: UIViewController {
         return label
     }()
 
-    lazy var profileButton: UIButton = {
+    private lazy var profileButton: UIButton = {
         let button = UIButton()
-        button.frame.size = CGSize(width: 35, height: 35)
-        button.setImage(UIImage(named: "LiaProfile"), for: .normal) // Object Literal Violation Warning...
-        button.layer.cornerRadius = button.frame.size.width / 2
+        button.frame.size = CGSize(width: profileButtonSize, height: profileButtonSize)
+        button.setImage(UIImage(named: ImageLiteral.profile), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.layer.cornerRadius = (button.imageView?.frame.size.width ?? 0) / 2
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -42,19 +45,17 @@ final class TodayViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: dateLabel)
-        navigationItem.titleView = profileButton
         setNavigationConstraint()
     }
 
     private func setNavigationConstraint() {
-        let layoutCriteriaView: UIView = navigationController?.navigationBar ?? view
+        view.addSubview(profileButton)
 
         NSLayoutConstraint.activate([
-            profileButton.trailingAnchor.constraint(equalTo: layoutCriteriaView.trailingAnchor,
-                                                    constant: -13),
-            profileButton.topAnchor.constraint(equalTo: layoutCriteriaView.topAnchor, constant: 50),
-            profileButton.widthAnchor.constraint(equalToConstant: 35),
-            profileButton.heightAnchor.constraint(equalToConstant: 35)
+            profileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -13),
+            profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 95),
+            profileButton.widthAnchor.constraint(equalToConstant: profileButtonSize),
+            profileButton.heightAnchor.constraint(equalToConstant: profileButtonSize)
         ])
     }
 
