@@ -88,5 +88,5 @@ final class TodayViewController: UIViewController {
         introView.view.layer.masksToBounds = true
         return introView
     }
-    
+
 }
