@@ -10,7 +10,6 @@ import UIKit
 final class CustomTabBarController: UITabBarController {
 
     enum TabBarType: CaseIterable {
-
         case today
         case game
         case app
@@ -72,10 +71,9 @@ final class CustomTabBarController: UITabBarController {
     }
 
     private func setTabBarUI() {
-        tabBar.tintColor = .systemBlue
-        tabBar.unselectedItemTintColor = .systemGray
-        tabBar.backgroundColor = .darkGray
-        tabBar.isTranslucent = true
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
+        blurView.frame = view.frame
+        tabBar.addSubview(blurView)
     }
 
     private func setTabBarViewControllers() {
