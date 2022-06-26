@@ -23,7 +23,13 @@ final class IntroductionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        addSubviews()
+    }
+
+    private func addSubviews() {
         view.backgroundColor = .secondarySystemGroupedBackground
+
         view.addSubview(subtitleLabel)
         view.addSubview(titleLabel)
         view.addSubview(descriptionLabel)
