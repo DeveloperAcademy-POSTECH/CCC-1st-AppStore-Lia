@@ -36,7 +36,7 @@ final class IntroductionViewController: UIViewController {
         titleLabel.text = title
 
         if let description = description {
-            setDescription(description: description)
+            setDescription(description: description, isDark: isDark)
         }
 
         switch titlePosition {
@@ -88,9 +88,9 @@ final class IntroductionViewController: UIViewController {
         }
     }
 
-    private func setDescription(description: String) {
+    private func setDescription(description: String, isDark: Bool) {
         descriptionLabel.text = description
-        descriptionLabel.applyFontStyle(.description, isDark: true)
+        descriptionLabel.applyFontStyle(.description, isDark: isDark)
 
         NSLayoutConstraint.activate([
             descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -15),
