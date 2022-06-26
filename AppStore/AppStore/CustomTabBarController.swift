@@ -74,7 +74,6 @@ final class CustomTabBarController: UITabBarController {
         let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
         blurView.frame = view.frame
         tabBar.addSubview(blurView)
-        tabBar.isTranslucent = true
         tabBar.tintColor = .systemBlue
     }
 
